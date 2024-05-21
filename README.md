@@ -269,4 +269,36 @@ app.post('/api/products', async (req,res) => {
 Data are saved in database. 
 ![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/000b1bf9-14ff-40dd-b51e-1f29bd53bf53)
 
+**Showing all data**
+```js
+app.get('/api/products', async (req,res) => { 
+    try {
+        const products = await Product.find({});
+        res.status(200).json(products)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/6e420715-4f52-464a-8cf6-e54e955f1f94)
+
+**Showing single product data**
+```js
+app.get('/api/product/:id', async (req,res) => { 
+    try {
+        // get id from the url 
+        const {id} = req.params;
+
+        const product = await Product.findById(id);
+        res.status(200).json(product)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/cf63bb92-7b6e-4622-9be2-e9f3d197e174)
+
+
 
