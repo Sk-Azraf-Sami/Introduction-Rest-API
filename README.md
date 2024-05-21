@@ -129,9 +129,10 @@ npm run dev
 ```
 
 **7. Connect `mongodb` with `nodejs` backend** 
-	- connecting with mongodb 
-	- `npm install mongodb`
-	- import `mongoose` in `index.js` ==> `npm i mongoose -D`
+	
+- connecting with mongodb 
+- `npm install mongodb`
+- import `mongoose` in `index.js` ==> `npm i mongoose -D`
 	  
 Here, `index.js`  => 
 ```js
