@@ -248,4 +248,25 @@ Here is the solution,
 ```js
 app.use(express.json());
 ```
+Now updating api to save data in database 
+```js
+// import model 
+const Product = require('./models/product.model.js')
+app.post('/api/products', async (req,res) => {
+    //console.log(req.body);
+    //res.send(req.body); 
+    try {
+        const product = await Product.create(req.body)
+        res.status(200).json(product)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/9e8ee2e1-5732-4439-b3e8-0e02cf4f438e)
+
+Data are saved in database. 
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/000b1bf9-14ff-40dd-b51e-1f29bd53bf53)
+
 
