@@ -36,7 +36,8 @@ curl -X POST "https://accounts.spotify.com/api/token" \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "grant_type=client_credentials&client_id=your-client-id&client_secret=your-client-secret"
 ```
-
+Here, your-client-id = Account SID </br>  
+your-client-secret = Account Auth Token 
 
 ### Twilio API 
 
