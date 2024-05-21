@@ -300,5 +300,27 @@ app.get('/api/product/:id', async (req,res) => {
 ```
 ![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/cf63bb92-7b6e-4622-9be2-e9f3d197e174)
 
+**Update product**
+```js
+app.put('/api/product/:id', async (req,res) => { 
+    try {
+        // get id from the url 
+        const {id} = req.params;
+
+        const product = await Product.findByIdAndUpdate(id, req.body);
+        if(!product){
+            return res.status(404).json({message: "Product not found!"})
+        }
+
+        const updatedProduct = await Product.findById(id)
+        res.status(200).json(updatedProduct)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/e6da5723-8f8e-4f53-b7b9-9a453e5b0edd)
+
 
 
