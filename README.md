@@ -322,5 +322,41 @@ app.put('/api/product/:id', async (req,res) => {
 ```
 ![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/e6da5723-8f8e-4f53-b7b9-9a453e5b0edd)
 
+**Delete product**
+
+```js
+app.delete('/api/product/:id', async (req,res) => { 
+    try {
+        // get id from the url 
+        const {id} = req.params;
+
+        const product = await Product.findByIdAndDelete(id);
+        if(!product){
+            return res.status(404).json({message: "Product not found!"})
+        }
+        res.status(200).json({message: "Product is deleted!"})
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/96388095-ff2c-410f-aa09-bd769b87d002)
+
+**10. Using URL encoded instead of JSON**
+
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/81cbe217-57a3-426a-9f45-2517eb90c9a6)
+
+To Solve this issue: 
+```js
+app.use(express.urlencoded({extended: false}))
+```
+![image](https://github.com/Sk-Azraf-Sami/Introduction-Rest-API/assets/106574604/5fc1dd42-4b60-41aa-910e-bb83dadcba5d)
+
+**11. Using routes for structural advantages**
+- create a `routes` folder
+- create route files in this folder
+
+
 
 
