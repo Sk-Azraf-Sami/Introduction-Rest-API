@@ -358,9 +358,10 @@ app.use(express.urlencoded({extended: false}))
 - create route files in this folder
 
 **12. Structural Way**
- 1.Create index.js file: Connect with database 
- 2.Create a controller file: Contains all controller function 
- 3.Create a route file: Where controller function will use with api 
+
+1. Create index.js file: Connect with database 
+2. Create a controller file: Contains all controller function 
+3. Create a route file: Where controller function will use with api 
 
 
 
